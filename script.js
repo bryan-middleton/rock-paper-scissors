@@ -13,6 +13,21 @@ function getComputerChoice (range = 3){
     }
 }
 
+
+function getPlayerChoice(){
+    let valid = false;
+    let playerSelection = prompt('Enter rock, paper, or scissors');
+    while (!valid){
+       if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors'){
+        playerSelection = prompt('Invalid input. Enter rock, paper, or scissors');
+        }
+        else {
+        valid = true;
+        }
+    }
+    return playerSelection;  
+}
+
 //function to play a round of the game
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase(); // make comparison case insensitive by converting all to lower case
@@ -46,7 +61,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-//const playerSelection='SciSsors';
 
 //function to play 5 rounds of the game
 function game(){
@@ -54,7 +68,7 @@ function game(){
     let computerScore=0;
 
     for(let i =0; i<5;i++){ //loop to play 5 rounds
-        let playerSelection = prompt('Enter rock, paper, or scissors');
+        let playerSelection = getPlayerChoice();
         let computerSelection = getComputerChoice(); //get new computer choice each round
         let result = playRound(playerSelection,computerSelection); //capture result to check who won
         if (result.includes('win')){
