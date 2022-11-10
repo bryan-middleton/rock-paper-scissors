@@ -17,7 +17,7 @@ function getComputerChoice (range = 3){
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase(); // make comparison case insensitive by converting all to lower case
     computerSelection = computerSelection.toLowerCase();
-    if (playerSelection == computerSelection) { //check for a draw first. This simplifies later comparisons
+    if (playerSelection == computerSelection) { //check for a draw first. This excludes or simplifies later comparisons
         return 'It\'s a draw!';
     }
     else if(playerSelection == 'rock'){ //comparisons if player plays rock
@@ -46,7 +46,29 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection='roCk';
-const computerSelection = getComputerChoice();
-console.log('player: '+ playerSelection + '; computer: ' + computerSelection);
-console.log(playRound(playerSelection, computerSelection));
+//const playerSelection='SciSsors';
+
+//function to play 5 rounds of the game
+function game(){
+    let playerScore=0; //starting scores
+    let computerScore=0;
+
+    for(let i =0; i<5;i++){ //loop to play 5 rounds
+        let playerSelection = prompt('Enter rock, paper, or scissors');
+        let computerSelection = getComputerChoice(); //get new computer choice each round
+        let result = playRound(playerSelection,computerSelection); //capture result to check who won
+        if (result.includes('win')){
+            playerScore++; //check return string for 'win', then increase player score
+        }
+        else if(result.includes('lose')){
+            computerScore++; //check return string for 'lose', then increase computer score
+        }
+        //do nothing if draw and continue game
+        console.log('Round '+ (i+1));
+        console.log('player: '+ playerSelection + '; computer: ' + computerSelection);
+        console.log(result);
+        console.log('Player Score: '+ playerScore + '; Computer Score: '+computerScore);
+    }
+}
+
+game();
