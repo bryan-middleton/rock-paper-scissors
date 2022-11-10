@@ -16,7 +16,7 @@ function getComputerChoice (range = 3){
 
 function getPlayerChoice(){
     let valid = false;
-    let playerSelection = prompt('Enter rock, paper, or scissors');
+    let playerSelection = prompt('Enter rock, paper, or scissors').toLowerCase();
     while (!valid){
        if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors'){
         playerSelection = prompt('Invalid input. Enter rock, paper, or scissors');
