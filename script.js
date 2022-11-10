@@ -13,7 +13,7 @@ function getComputerChoice (range = 3){
     }
 }
 
-
+//function to capture and validate player choice. Loops until valid input given.
 function getPlayerChoice(){
     let valid = false;
     let playerSelection = prompt('Enter rock, paper, or scissors').toLowerCase();
