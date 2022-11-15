@@ -13,20 +13,12 @@ function getComputerChoice (range = 3){
     }
 }
 
-//function to capture and validate player choice. Loops until valid input given.
-function getPlayerChoice(){
-    let valid = false;
-    let playerSelection = prompt('Enter rock, paper, or scissors').toLowerCase();
-    while (!valid){
-       if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors'){
-        playerSelection = prompt('Invalid input. Enter rock, paper, or scissors');
-        }
-        else {
-        valid = true;
-        }
-    }
-    return playerSelection;  
-}
+//function to capture player choice from buttons
+//function getPlayerChoice(){
+  //  const playerSelection = document.querySelector('.move')
+    //console.log(playerSelection);
+    //return playerSelection;
+//}
 
 //function to play a round of the game
 function playRound(playerSelection, computerSelection) {
@@ -45,7 +37,7 @@ function playRound(playerSelection, computerSelection) {
     }
     else if(playerSelection == 'scissors') { //comparisons if player plays scissors
         if(computerSelection == 'rock'){
-            return 'You lose! Scissors beats Rock';
+            return 'You lose! Rock beats Scissors';
         }
         else {
             return 'You win! Scissors beats Paper';
@@ -60,29 +52,17 @@ function playRound(playerSelection, computerSelection) {
         } 
     }
 }
+let playerScore = 0;
+let computerScore = 0;
+const moves = document.querySelectorAll('.move');
+console.log(moves);
+moves.forEach((move) => {
+    move.addEventListener('click',()=>{
+     let computerSelection = getComputerChoice();
+     console.log(computerSelection);
+     const playerSelection = move.id;
+     const result = playRound(playerSelection,computerSelection);
+     console.log(result);
+    });
+});
 
-
-//function to play 5 rounds of the game
-function game(){
-    let playerScore=0; //starting scores
-    let computerScore=0;
-
-    for(let i =0; i<5;i++){ //loop to play 5 rounds
-        let playerSelection = getPlayerChoice();
-        let computerSelection = getComputerChoice(); //get new computer choice each round
-        let result = playRound(playerSelection,computerSelection); //capture result to check who won
-        if (result.includes('win')){
-            playerScore++; //check return string for 'win', then increase player score
-        }
-        else if(result.includes('lose')){
-            computerScore++; //check return string for 'lose', then increase computer score
-        }
-        //do nothing if draw and continue game
-        console.log('Round '+ (i+1));
-        console.log('player: '+ playerSelection + '; computer: ' + computerSelection);
-        console.log(result);
-        console.log('Player Score: '+ playerScore + '; Computer Score: '+computerScore);
-    }
-}
-
-game();
