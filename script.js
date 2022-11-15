@@ -13,17 +13,11 @@ function getComputerChoice (range = 3){
     }
 }
 
-//function to capture player choice from buttons
-//function getPlayerChoice(){
-  //  const playerSelection = document.querySelector('.move')
-    //console.log(playerSelection);
-    //return playerSelection;
-//}
 
 //function to play a round of the game
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection) {
     playerSelection = playerSelection.toLowerCase(); // make comparison case insensitive by converting all to lower case
-    computerSelection = computerSelection.toLowerCase();
+    computerSelection = getComputerChoice().toLowerCase();
     if (playerSelection == computerSelection) { //check for a draw first. This excludes or simplifies later comparisons
         return 'It\'s a draw!';
     }
@@ -52,17 +46,41 @@ function playRound(playerSelection, computerSelection) {
         } 
     }
 }
+
+//UI section
+
+
 let playerScore = 0;
 let computerScore = 0;
+let result = '';
+let round = 0;
+gameState = true;
 const moves = document.querySelectorAll('.move');
-console.log(moves);
-moves.forEach((move) => {
+    moves.forEach((move) => {
     move.addEventListener('click',()=>{
-     let computerSelection = getComputerChoice();
-     console.log(computerSelection);
-     const playerSelection = move.id;
-     const result = playRound(playerSelection,computerSelection);
-     console.log(result);
+     result = playRound(move.id);
+     if (result.includes('win')){
+        playerScore++;
+     }
+     else if (result.includes('lose')){
+        computerScore++
+     }
+     round++;
+     const dispRound = document.querySelector('#round');
+     const dispPlayerScore = document.querySelector('#playerScore');
+     const dispComputerScore = document.querySelector('#computerScore');
+     const dispResult = document.querySelector('#lastResult');
+     const outcome = document.querySelector('#outcome');
+     dispRound.textContent = 'Round '+round;
+     dispResult.textContent = 'Result: '+result;
+     dispPlayerScore.textContent = 'Player Score: '+playerScore;
+     dispComputerScore.textContent = 'Computer Score: '+computerScore;
+     console.log(result + ' ' + playerScore + ' ' + computerScore);
+     if (playerScore == 5) {
+        outcome.textContent = 'Player wins!';      
+    }
+    else if(computerScore == 5){
+        outcome.textContent = 'Computer wins!';
+    }
     });
-});
-
+    });
