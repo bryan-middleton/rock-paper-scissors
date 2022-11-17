@@ -19,30 +19,30 @@ function playRound(playerSelection) {
     playerSelection = playerSelection.toLowerCase(); // make comparison case insensitive by converting all to lower case
     computerSelection = getComputerChoice().toLowerCase();
     if (playerSelection == computerSelection) { //check for a draw first. This excludes or simplifies later comparisons
-        return 'It\'s a draw!';
+        return `Player played ${playerSelection}, Computer played ${computerSelection}. It\'s a draw!`;
     }
     else if(playerSelection == 'rock'){ //comparisons if player plays rock
         if(computerSelection == 'scissors'){
-            return 'You win! Rock beats Scissors';
+            return `Player played ${playerSelection}, Computer played ${computerSelection}. You win! Rock beats Scissors`;
         }
         else {
-            return 'You lose! Paper beats Rock';
+            return `Player played ${playerSelection}, Computer played ${computerSelection}. You lose! Paper beats Rock`;
         }
     }
     else if(playerSelection == 'scissors') { //comparisons if player plays scissors
         if(computerSelection == 'rock'){
-            return 'You lose! Rock beats Scissors';
+            return `Player played ${playerSelection}, Computer played ${computerSelection}. You lose! Rock beats Scissors`;
         }
         else {
-            return 'You win! Scissors beats Paper';
+            return `Player played ${playerSelection}, Computer played ${computerSelection}. You win! Scissors beats Paper`;
         }
     }
     else if(playerSelection == 'paper') { //comparisons if player plays paper
         if(computerSelection == 'rock'){
-            return 'You win! Paper beats Rock';
+            return `Player played ${playerSelection}, Computer played ${computerSelection}. You win! Paper beats Rock`;
         }
         else {
-            return 'You lose! Scissors beats Paper';
+            return `Player played ${playerSelection}, Computer played ${computerSelection}. You lose! Scissors beats Paper`;
         } 
     }
 }
@@ -74,7 +74,7 @@ function game(move){
         move.disabled = true});
     }
     }
-
+//function to start or restart game
 function controlGame(){
     moves.forEach((move) => {
     move.disabled = false});
