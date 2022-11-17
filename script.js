@@ -47,40 +47,65 @@ function playRound(playerSelection) {
     }
 }
 
-//UI section
-
-
-let playerScore = 0;
-let computerScore = 0;
-let result = '';
-let round = 0;
-gameState = true;
-const moves = document.querySelectorAll('.move');
-    moves.forEach((move) => {
-    move.addEventListener('click',()=>{
-     result = playRound(move.id);
-     if (result.includes('win')){
+function game(move){
+    console.log(move);
+    result = playRound(move);
+    if (result.includes('win')){
         playerScore++;
-     }
-     else if (result.includes('lose')){
+    }
+    else if (result.includes('lose')){
         computerScore++
-     }
+    }
      round++;
-     const dispRound = document.querySelector('#round');
-     const dispPlayerScore = document.querySelector('#playerScore');
-     const dispComputerScore = document.querySelector('#computerScore');
-     const dispResult = document.querySelector('#lastResult');
-     const outcome = document.querySelector('#outcome');
+     
      dispRound.textContent = 'Round '+round;
      dispResult.textContent = 'Result: '+result;
      dispPlayerScore.textContent = 'Player Score: '+playerScore;
      dispComputerScore.textContent = 'Computer Score: '+computerScore;
      console.log(result + ' ' + playerScore + ' ' + computerScore);
      if (playerScore == 5) {
-        outcome.textContent = 'Player wins!';      
+        outcome.textContent = 'Player wins!';
+        moves.forEach((move) => {
+            move.disabled = true});
     }
     else if(computerScore == 5){
         outcome.textContent = 'Computer wins!';
+        moves.forEach((move) => {
+        move.disabled = true});
     }
-    });
-    });
+    }
+
+function controlGame(){
+    moves.forEach((move) => {
+    move.disabled = false});
+    gameState.textContent= 'Restart Game';
+    playerScore=0;
+    computerScore=0;
+    round = 0;
+    result='';
+    dispRound.textContent = 'Round';
+    dispResult.textContent = 'Result:';
+    dispPlayerScore.textContent = 'Player Score:';
+    dispComputerScore.textContent = 'Computer Score';
+    outcome.textContent = '';
+    }
+//UI section
+
+const gameState = document.querySelector('#gameState');
+gameState.addEventListener('click',controlGame);
+
+
+let playerScore = 0;
+let computerScore = 0;
+let result = '';
+let round = 0;
+const dispRound = document.querySelector('#round');
+const dispPlayerScore = document.querySelector('#playerScore');
+const dispComputerScore = document.querySelector('#computerScore');
+const dispResult = document.querySelector('#lastResult');
+const outcome = document.querySelector('#outcome');
+const moves = document.querySelectorAll('.move');
+
+moves.forEach((move) => {
+move.addEventListener('click',()=>{ game(move.id)});
+});
