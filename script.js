@@ -3,13 +3,16 @@ function getComputerChoice (range = 3){
     let randomNumber =  Math.floor(Math.random()*range); // Generate random number between 1 and 3
     // based on random number generated, assign rock, paper or scissors
     if (randomNumber < 1){
-        return 'Rock';
+        computerMove.textContent = "ROCK";
+        return 'ROCK';
     }
     else if (randomNumber > 1) {
-        return 'Paper'
+        computerMove.textContent = "PAPER";
+        return 'PAPER'
     }
     else {
-        return 'Scissors'
+        computerMove.textContent = "SCISSORS";
+        return 'SCISSORS'
     }
 }
 
@@ -62,6 +65,7 @@ function game(move){
      dispResult.textContent = 'Result: '+result;
      dispPlayerScore.textContent = 'Player Score: '+playerScore;
      dispComputerScore.textContent = 'Computer Score: '+computerScore;
+     playerMove.textContent = move;
      console.log(result + ' ' + playerScore + ' ' + computerScore);
      if (playerScore == 5) {
         outcome.textContent = 'Player wins!';
@@ -85,8 +89,10 @@ function controlGame(){
     result='';
     dispRound.textContent = 'Round';
     dispResult.textContent = 'Result:';
-    dispPlayerScore.textContent = 'Player Score:';
-    dispComputerScore.textContent = 'Computer Score';
+    playerMove.textContent = '';
+    computerMove.textContent = '';
+    dispPlayerScore.textContent = 'Player Score: 0';
+    dispComputerScore.textContent = 'Computer Score: 0';
     outcome.textContent = '';
     }
 //UI section
@@ -105,6 +111,8 @@ const dispComputerScore = document.querySelector('#computerScore');
 const dispResult = document.querySelector('#lastResult');
 const outcome = document.querySelector('#outcome');
 const moves = document.querySelectorAll('.move');
+const computerMove = document.querySelector('#computerMove');
+const playerMove = document.querySelector('#playerMove');
 
 moves.forEach((move) => {
 move.addEventListener('click',()=>{ game(move.id)});

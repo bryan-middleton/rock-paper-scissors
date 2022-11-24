@@ -1,0 +1,71 @@
+*{
+    border:1px solid red;
+}
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0px 200px;
+   
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    min-height: 100vh;
+    background-color:tan;
+}
+h1 {
+    text-align: center;
+}
+.headings{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
+}
+
+.scores {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+}
+
+.game {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex: 1;
+}
+
+.gameItem{
+    flex:1;
+    text-align: center;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex:1;
+}
+
+.move {
+    border-radius: 20%;
+    background-color: azure;
+    color: blue;
+    font-style:italic;
+    font-weight: bold;
+    padding: 8px;
+}
+
+.move:disabled{
+    opacity:0.3;
+}
+.move:hover:enabled{
+    background-color: green;
+    color: white;
+    font-size:larger;
+}
+
