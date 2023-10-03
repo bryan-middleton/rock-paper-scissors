@@ -1,77 +1,76 @@
 body {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    margin: 0px 200px;
-    border: 1px solid black;
-   
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin: 0px 200px;
+  border: 1px solid black;
 }
 .content {
-    display: flex;
-    flex-direction: column;
-    flex:1;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 100vh;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
-.headings{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    flex: 1;
-    background-color: #dfacd8;
+.headings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1;
+  background-color: #dfacd8;
 }
 
 .scores {
-    display: flex;
-    flex: 1;
-    justify-content: space-around;
-    background-color: lightpink;
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  background-color: lightpink;
 }
 
 .game {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex: 1;
-    background-color:thistle
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1;
+  background-color: thistle;
 }
 
-.gameItem{
-    flex:1;
-    text-align: center;
-    align-items: center;
+.gameItem {
+  flex: 1;
+  text-align: center;
+  align-items: center;
 }
 
 .results {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex:1;
-    background-color: darkcyan;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  background-color: darkcyan;
 }
 
 .move {
-    border-radius: 20%;
-    background-color: azure;
-    color: blue;
-    font-style:italic;
-    font-weight: bold;
-    padding: 8px;
+  border-radius: 20%;
+  background-color: azure;
+  color: blue;
+  font-style: italic;
+  font-weight: bold;
+  padding: 8px;
 }
 
-.buttons{
-    background-color: aliceblue;
+.buttons {
+  background-color: aliceblue;
 }
 
-.move:disabled{
-    opacity:0.3;
+.move:disabled {
+  opacity: 0.3;
 }
-.move:hover:enabled{
-    background-color: green;
-    color: white;
-    font-size:larger;
+.move:hover:enabled {
+  background-color: green;
+  color: white;
+  font-size: larger;
 }
-
